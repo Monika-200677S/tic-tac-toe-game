@@ -1,62 +1,82 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-   background: linear-gradient(to left,rgb(81, 2, 81),rgb(39, 0, 39));
-    text-align: center;
+body {
+    background: linear-gradient(to left, rgb(81, 2, 81), rgb(39, 0, 39));
     color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    overflow-x: hidden;
+    text-align: center;
 }
 
-.container{
-    height: 70vh;
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100vw;
+    margin: 2rem 0rem;
+}
+
+/* ✅ Winner message cleaned up */
+.msg-container {
+    font-size: clamp(1rem, 3.5vw, 1.8rem);
+    text-align: center;
+    word-break: keep-all;       /* no breaking words */
+    white-space: nowrap;        /* keep on one line */
+    max-width: 90vw;
+    line-height: 1.4;
+}
+
+#msg {
+    color: rgb(193, 101, 193);
+    font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* ✅ Game board stays square */
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: min(90vw, 300px);
+    height: min(90vw, 300px);
+    margin: auto;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    font-size: clamp(1.2rem, 6vmin, 2.5rem);
+    color: rgb(31, 1, 31);
+    background-color: rgb(193, 101, 193);
     display: flex;
     justify-content: center;
-    align-items: center; 
-   
+    align-items: center;
 }
 
-.game{
-    height: 60vmin;
-    width: 60vmin;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center; 
-    gap: 1.5vmin;
-}
-
-.box{
-   height: 18vmin;
-   width: 18vmin;
-   border: none;
-   border-radius: 25px;
-   font-size: 8vmin;
-   color: rgb(31, 1, 31);
-   background-color: rgb(193, 101, 193);
-}
-
-#reset-btn{
-    width: 20vmin;
-    height: 5vmin;
+#reset-btn {
+    margin-top: 10px;
+    padding: 0.5rem 1rem;
     background-color: black;
     color: white;
     border: 1.5px solid white;
     border-radius: 20px;
-    text-align: center;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    cursor: pointer;
 }
 
-#msg{
-    color: rgb(193, 101, 193);
-   font-size:large;
-}
-
-.msg-container{
-    margin: 25px;
-    font-size: xxx-large;
-}
-
-.hide{
+.hide {
     display: none;
 }
